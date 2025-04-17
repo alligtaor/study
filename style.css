@@ -1,0 +1,85 @@
+/* Reset default browser styles a little */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fdfdfd;
+    color: #333;
+    padding: 20px;
+  }
+  
+  header {
+    background-color: #4f9a50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  nav {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  nav a {
+    color: white;
+    background-color: #e64e8b;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: #d3447d;
+  }
+  
+  main {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+  }
+  
+  /* Schedule table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #4f9a50;
+    color: white;
+  }
+  
+  td {
+    background-color: #fff;
+  }
+  
+  .back-button {
+    margin-top: 20px;
+    display: inline-block;
+    background-color: #e64e8b;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 8px;
+  }
+  
+  .back-button:hover {
+    background-color: #d3447d;
+  }
+  

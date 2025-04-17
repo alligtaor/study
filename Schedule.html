@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Schedule</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fefefe;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4f9a50;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    table {
+      width: 100%;
+      max-width: 800px;
+      margin: 2rem auto;
+      border-collapse: collapse;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    caption {
+      font-size: 1.3rem;
+      color: #4f9a50;
+      margin-bottom: 0.5rem;
+    }
+
+    th, td {
+      padding: 1rem;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #e64e8b;
+      color: white;
+    }
+
+    td[contenteditable="true"] {
+      background-color: #fff7f9;
+      cursor: text;
+    }
+
+    tr:hover td {
+      background-color: #f0f8f0;
+    }
+
+    footer {
+      background-color: #4f9a50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      th {
+        text-align: center;
+      }
+      td {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📅 Study Schedule</h1>
+    <p>Organize your study goals & tasks with ease 💪</p>
+  </header>
+
+  <main>
+    <a href="website.html" class="back-button">← Back to Home</a>
+    <table>
+      <caption>Your April 2025 Study Plan</caption>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Task</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>April 16</td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+        </tr>
+        <tr>
+          <td>April 17</td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td>April 18</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td>April 19</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td>April 20</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td>April 21</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td>April 22</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td>April 23</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td>April 24</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+        <!-- Add more rows below -->
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>Made with 💖 and focus by Tanya</p>
+  </footer>
+  <script>
+    // Save table data to localStorage
+    function saveTableData() {
+      const rows = document.querySelectorAll("tbody tr");
+      const data = [];
+  
+      rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        const rowData = [];
+        cells.forEach(cell => {
+          rowData.push(cell.innerText.trim());
+        });
+        data.push(rowData);
+      });
+  
+      localStorage.setItem("studySchedule", JSON.stringify(data));
+    }
+  
+    // Load table data from localStorage
+    function loadTableData() {
+      const storedData = localStorage.getItem("studySchedule");
+      if (!storedData) return;
+  
+      const rows = JSON.parse(storedData);
+      const tbody = document.querySelector("tbody");
+      tbody.innerHTML = ""; // Clear current rows
+  
+      rows.forEach(rowData => {
+        const row = document.createElement("tr");
+        rowData.forEach((cellData, index) => {
+          const cell = document.createElement("td");
+          cell.contentEditable = "true";
+          cell.innerText = cellData;
+          row.appendChild(cell);
+        });
+        tbody.appendChild(row);
+      });
+    }
+  
+    // Save on every change
+    document.addEventListener("DOMContentLoaded", () => {
+      loadTableData();
+  
+      document.querySelector("tbody").addEventListener("input", () => {
+        saveTableData();
+      });
+    });
+  </script>
+  
+</body>
+</html>
+
+
